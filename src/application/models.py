@@ -12,7 +12,7 @@ from google.appengine.ext import db
 class Searches(db.Model):
     """Searches Model"""
     search_word = db.StringProperty(required=True)
-    search_result_ids = db.ListProperty(str,indexed=True,default=[])
+    search_result_ids = db.ListProperty(db.Key)
 
 class SearchResults(db.Model):
     """Search Results"""
