@@ -13,7 +13,7 @@ For example the *say_hello* handler, handling the URL route '/hello/<username>',
 from google.appengine.api import users
 from google.appengine.runtime.apiproxy_errors import CapabilityDisabledError
 
-from flask import render_template, flash, url_for, redirect
+from flask import render_template, flash, url_for, redirect, jsonify
 
 #from models import ExampleModel
 #from decorators import login_required, admin_required
@@ -79,5 +79,6 @@ def say_hello(username):
 #
 def search(search_words):
     """ Searches for word using google API"""
-    return "Search words are " + search_words
+    return jsonify(words=search_words)
+    #return "Search words are " + search_words
 
