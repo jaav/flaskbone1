@@ -9,9 +9,13 @@ App Engine datastore models
 from google.appengine.ext import db
 
 
-class ExampleModel(db.Model):
-    """Example Model"""
-    example_name = db.StringProperty(required=True)
-    example_description = db.TextProperty(required=True)
-    added_by = db.UserProperty()
-    timestamp = db.DateTimeProperty(auto_now_add=True)
+class Searches(db.Model):
+    """Searches Model"""
+    search_word = db.StringProperty(required=True)
+    search_result_ids = db.ListProperty(str,indexed=True,default=[])
+
+class SearchResults(db.Model):
+    """Search Results"""
+    url = db.StringProperty(required=True)
+    result = db.TextProperty(required=False)
+
